@@ -1,0 +1,21 @@
+{
+  "name": "charesapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server-dev": "nodemon server/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^2.15.0",
+    "bluebird": "^3.7.2",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.3.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.20",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5"
+  }
+}
