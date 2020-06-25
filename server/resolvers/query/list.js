@@ -38,34 +38,4 @@ module.exports = {
       console.error(err);
     }
   },
-  metadata: async (_, args, { models }) => {
-    try {
-      const reviews = await models.Review.find({
-        product_id: args.product_id,
-        reported: false,
-      });
-      let ratings = {};
-      let recommended = {};
-      for (const obj of reviews) {
-        if (!(obj.rating in ratings)) {
-          ratings[obj.rating] = 0;
-        }
-        if (!(obj.recommend in recommended)) {
-          recommended[obj.recommend] = 0;
-        }
-        ratings[obj.rating] += 1;
-        recommended[obj.recommend] += 1;
-      }
-      // construct metadata object;
-      const metadata = {
-        product_id: args.product_id.toString(),
-        ratings,
-        recommended,
-      };
-      // console.log(metadata);
-      return metadata;
-    } catch (err) {
-      console.error(err);
-    }
-  },
 };

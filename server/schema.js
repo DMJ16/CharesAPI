@@ -1,6 +1,8 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
+  scalar JSON
+
   type Review {
     id: ID!
     product_id: Int
@@ -49,24 +51,16 @@ const typeDefs = gql`
     results: [Review!]
   }
 
-  type Ratings {
-    number: Int
-  }
-
-  type Recommended {
-    number: Int
-  }
-
   type Metadata {
     product_id: String
-    ratings: Ratings
-    recommended: Recommended
-    # characteristics: Characteristic
+    ratings: JSON
+    recommended: JSON
+    characteristics: JSON
   }
 
   type Query {
     list(product_id: Int!, page: Int, count: Int, sort: String): List
-    metadata(product_id: Int!): Metadata
+    meta(product_id: Int!): Metadata
   }
 `;
 
