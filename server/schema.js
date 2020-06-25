@@ -1,6 +1,5 @@
 const { gql } = require("apollo-server-express");
 
-// create type definitions for schema
 const typeDefs = gql`
   type Review {
     id: ID!
@@ -30,6 +29,12 @@ const typeDefs = gql`
     name: String!
   }
 
+  type CharacteristicMetadata {
+    id: ID!
+    product_id: Int!
+    name: CharacteristicReview
+  }
+
   type CharacteristicReview {
     id: ID!
     characteristic_id: Int!
@@ -44,9 +49,24 @@ const typeDefs = gql`
     results: [Review!]
   }
 
+  type Ratings {
+    number: Int
+  }
+
+  type Recommended {
+    number: Int
+  }
+
+  type Metadata {
+    product_id: String
+    ratings: Ratings
+    recommended: Recommended
+    # characteristics: Characteristic
+  }
+
   type Query {
-    # results(product_id: Int!, page: Int, count: Int, sort: String): [Review]
     list(product_id: Int!, page: Int, count: Int, sort: String): List
+    metadata(product_id: Int!): Metadata
   }
 `;
 
