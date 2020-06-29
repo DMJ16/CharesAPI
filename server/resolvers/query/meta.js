@@ -2,13 +2,16 @@ module.exports = {
   meta: async (_, args, { models }) => {
     try {
       //queries
-      const reviews = await models.Review.find({
-        product_id: args.product_id,
-        reported: false,
-      });
-      const getCharacteristics = await models.Characteristic.find({
-        product_id: args.product_id,
-      });
+      const queries = [
+        models.Review.find({
+          product_id: args.product_id,
+          reported: false,
+        }),
+        models.Characteristic.find({
+          product_id: args.product_id,
+        }),
+      ];
+      const [reviews, getCharacteristics] = await Promise.all(queries);
       const getCharacteristicReviews = await models.Characteristic_Review.find({
         characteristic_id: getCharacteristics.map((characteristic) => {
           return characteristic.id;
