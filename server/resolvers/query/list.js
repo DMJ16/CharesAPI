@@ -5,7 +5,7 @@ module.exports = {
         product_id: args.product_id,
         reported: false,
       });
-      // construct list object;
+
       const list = {
         product: args.product_id.toString(),
         page: args.page || 1,
@@ -34,8 +34,8 @@ module.exports = {
             : reviews,
       };
       return list;
-    } catch (err) {
-      console.error(err);
+    } catch (e) {
+      throw e;
     }
   },
 };

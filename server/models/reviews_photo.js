@@ -7,6 +7,7 @@ const reviews_photoSchema = new mongoose.Schema({
   },
   review_id: {
     type: Number,
+    index: true,
     required: true,
   },
   url: {

@@ -7,6 +7,7 @@ const characteristic_reviewsSchema = new mongoose.Schema({
   },
   characteristic_id: {
     type: Number,
+    index: true,
     required: true,
   },
   review_id: {

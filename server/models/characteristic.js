@@ -7,6 +7,7 @@ const characteristicSchema = new mongoose.Schema({
   },
   product_id: {
     type: Number,
+    index: true,
     required: true,
   },
   name: {
