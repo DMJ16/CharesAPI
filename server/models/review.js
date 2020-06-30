@@ -7,6 +7,7 @@ const reviewSchema = new mongoose.Schema({
   },
   product_id: {
     type: Number,
+    index: true,
     required: true,
   },
   rating: {
@@ -49,10 +50,6 @@ const reviewSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  //   photos: {
-  //     type: Array,
-  //     required: true,
-  //   },
 });
 
 const Review = mongoose.model("Review", reviewSchema);

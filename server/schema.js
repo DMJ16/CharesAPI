@@ -31,12 +31,6 @@ const typeDefs = gql`
     name: String!
   }
 
-  type CharacteristicMetadata {
-    id: ID!
-    product_id: Int!
-    name: CharacteristicReview
-  }
-
   type CharacteristicReview {
     id: ID!
     characteristic_id: Int!
