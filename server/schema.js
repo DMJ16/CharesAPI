@@ -1,10 +1,10 @@
-const { gql } = require("apollo-server-express");
+const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
   scalar JSON
 
   type Review {
-    id: ID!
+    id: Int
     product_id: Int
     rating: Int
     date: String
@@ -16,33 +16,33 @@ const typeDefs = gql`
     reviewer_email: String
     response: String
     helpfulness: String
-    photos: [ReviewPhoto!]
+    photos: [ReviewPhoto]
   }
 
   type ReviewPhoto {
-    id: ID!
-    review_id: Int!
-    url: String!
+    id: Int
+    review_id: Int
+    url: String
   }
 
   type Characteristic {
-    id: ID!
-    product_id: Int!
-    name: String!
+    id: Int
+    product_id: Int
+    name: String
   }
 
   type CharacteristicReview {
-    id: ID!
-    characteristic_id: Int!
-    review_id: Int!
-    value: Float!
+    id: Int
+    characteristic_id: Int
+    review_id: Int
+    value: Float
   }
 
   type List {
     product: String
     page: Int
     count: Int
-    results: [Review!]
+    results: [Review]
   }
 
   type Metadata {
@@ -53,8 +53,23 @@ const typeDefs = gql`
   }
 
   type Query {
-    list(product_id: Int!, page: Int, count: Int, sort: String): List
-    meta(product_id: Int!): Metadata
+    list(product_id: Int, page: Int, count: Int, sort: String): List
+    meta(product_id: Int): Metadata
+  }
+
+  type Mutation {
+    add(
+      product_id: Int
+      rating: Int
+      date: String
+      summary: String
+      body: String
+      recommend: Boolean
+      name: String
+      email: String
+      photos: [String]
+      characteristics: JSON
+    ): Boolean
   }
 `;
 
