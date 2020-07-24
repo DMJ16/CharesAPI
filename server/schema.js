@@ -54,12 +54,12 @@ const typeDefs = gql`
 
   type Query {
     list(product_id: Int, page: Int, count: Int, sort: String): List
-    meta(product_id: Int): Metadata
+    meta(product_id: Int!): Metadata
   }
 
   type Mutation {
     add(
-      product_id: Int
+      product_id: Int!
       rating: Int
       date: String
       summary: String
@@ -70,6 +70,8 @@ const typeDefs = gql`
       photos: [String]
       characteristics: JSON
     ): Boolean
+    helpful(review_id: Int!): Boolean
+    report(review_id: Int!): Boolean
   }
 `;
 
