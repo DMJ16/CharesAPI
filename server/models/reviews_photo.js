@@ -3,16 +3,14 @@ const mongoose = require("mongoose");
 const reviews_photoSchema = new mongoose.Schema({
   id: {
     type: Number,
-    required: true,
+    index: true,
   },
   review_id: {
     type: Number,
     index: true,
-    required: true,
   },
   url: {
     type: String,
-    required: true,
   },
 });
 
