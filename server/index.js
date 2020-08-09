@@ -14,6 +14,13 @@ const DB_HOST = process.env.DB_HOST;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  introspection: true,
+  playground: true,
+  tracing: true,
+  engine: {
+    reportSchema: true,
+    graphVariant: "current",
+  },
   context: () => {
     return { models };
   },

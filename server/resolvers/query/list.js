@@ -10,28 +10,29 @@ module.exports = {
         product: args.product_id.toString(),
         page: args.page || 1,
         count: args.count || 5,
-        results:
-          args.sort === "newest"
-            ? reviews.sort((a, b) => {
-                let d1 = new Date(a.date);
-                let d2 = new Date(b.date);
-                return d2 - d1;
-              })
-            : args.sort === "helpful"
-            ? reviews.sort((a, b) => {
-                let h1 = a.helpfulness;
-                let h2 = b.helpfulness;
-                return h2 - h1;
-              })
-            : args.sort === "relevant"
-            ? reviews.sort((a, b) => {
-                let d1 = new Date(a.date);
-                let d2 = new Date(b.date);
-                let h1 = a.helpfulness;
-                let h2 = b.helpfulness;
-                return d2 * h2 - d1 * h1;
-              })
-            : reviews,
+        results: !args.sort
+          ? reviews
+          : args.sort === "newest"
+          ? reviews.sort((a, b) => {
+              let d1 = new Date(a.date);
+              let d2 = new Date(b.date);
+              return d2 - d1;
+            })
+          : args.sort === "helpful"
+          ? reviews.sort((a, b) => {
+              let h1 = a.helpfulness;
+              let h2 = b.helpfulness;
+              return h2 - h1;
+            })
+          : args.sort === "relevant"
+          ? reviews.sort((a, b) => {
+              let d1 = new Date(a.date);
+              let d2 = new Date(b.date);
+              let h1 = a.helpfulness;
+              let h2 = b.helpfulness;
+              return d2 * h2 - d1 * h1;
+            })
+          : new Error("Incorrect Sort Type"),
       };
       return list;
     } catch (e) {

@@ -1,9 +1,9 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   scalar JSON
 
-  type Review {
+  type Review @cacheControl(maxAge: 240) {
     id: Int
     product_id: Int
     rating: Int
@@ -38,14 +38,14 @@ const typeDefs = gql`
     value: Float
   }
 
-  type List {
+  type List @cacheControl(maxAge: 240) {
     product: String
     page: Int
     count: Int
     results: [Review]
   }
 
-  type Metadata {
+  type Metadata @cacheControl(maxAge: 240) {
     product_id: String
     ratings: JSON
     recommended: JSON

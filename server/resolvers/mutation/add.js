@@ -15,8 +15,8 @@ module.exports = {
         reported: 0,
         reviewer_name: args.name,
         reviewer_email: args.email,
-        response: 'test',
-        helpfulness: 'test',
+        response: "test",
+        helpfulness: "test",
       });
 
       const maxReviews_PhotosId = await models.Reviews_Photo.findOne().sort({
@@ -47,12 +47,12 @@ module.exports = {
       let mutationWasSuccessful = false;
       for (const item in reviews) {
         if (item === undefined || item === null)
-          throw new Error('Input review item is either null or undefined');
+          throw new Error("Input review item is either null or undefined");
       }
       mutationWasSuccessful = true;
       return mutationWasSuccessful;
     } catch {
-      throw new Error('Unable to save data');
+      throw new Error("Unable to save data");
     }
   },
 };
