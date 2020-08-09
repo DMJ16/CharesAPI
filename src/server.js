@@ -3,10 +3,10 @@ const { ApolloServer } = require("apollo-server-express");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 
-const db = require("../db/");
-const models = require("./models/");
-const typeDefs = require("./schema.js");
-const resolvers = require("./resolvers");
+const db = require("./db");
+const models = require("./db/models");
+const typeDefs = require("./graphql/schema.js");
+const resolvers = require("./graphql/resolvers");
 
 const port = process.env.GRAPHQL_PORT || 4000;
 const DB_HOST = process.env.DB_HOST;
