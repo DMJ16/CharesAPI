@@ -8,8 +8,15 @@ const models = require("./db/models");
 const typeDefs = require("./graphql/schema.js");
 const resolvers = require("./graphql/resolvers");
 
-const port = process.env.GRAPHQL_PORT || 4000;
-const DB_HOST = process.env.DB_HOST;
+const {
+  MONGO_USERNAME,
+  MONGO_PASSWORD,
+  MONGO_HOSTNAME,
+  MONGO_PORT,
+  MONGO_DB,
+} = process.env;
+
+const port = process.env.GRAPHQL_PORT;
 
 const server = new ApolloServer({
   typeDefs,
@@ -29,7 +36,13 @@ const server = new ApolloServer({
 const app = express();
 app.use(bodyParser.json());
 
-db.connect(DB_HOST);
+db.connect(
+  MONGO_USERNAME,
+  MONGO_PASSWORD,
+  MONGO_HOSTNAME,
+  MONGO_PORT,
+  MONGO_DB
+);
 
 server.applyMiddleware({ app, path: `/reviews` });
 
