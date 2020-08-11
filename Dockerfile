@@ -14,4 +14,6 @@ COPY --chown=node:node . .
 
 EXPOSE 4000
 
+CMD npm start
+
 

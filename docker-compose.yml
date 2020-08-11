@@ -34,23 +34,25 @@ services:
       ]
 
   db:
-    image: mongo:4.2
+    image: mongo:latest
     container_name: db
     restart: unless-stopped
     env_file: .env
     environment:
-      - MONGO_INITDB_DATABASE:$MONGO_DB
+      - MONGO_INITDB_DATABASE:CharesAPI
       - MONGO_INITDB_ROOT_USERNAME=$MONGO_USERNAME
       - MONGO_INITDB_ROOT_PASSWORD=$MONGO_PASSWORD
-    volumes:
-      - dbdata:/data/db
+    ports:
+      - 27017:27017
     networks:
       - app-network
+    volumes:
+      - /usr/local/var/mongodb:/data/db
+      - name:/usr/local/var/mongodb
 
 networks:
   app-network:
     driver: bridge
-
 volumes:
-  dbdata:
   node_modules:
+  name:
