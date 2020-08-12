@@ -1,29 +1,35 @@
 # CharesAPI
 
-### Services
+![Image of Helios]()
 
-1. Get review list by product_id
-2. Get review metadata by product_id
-3. Add new review 
-4. Update helpfulness
-5. Report a review
+## Services
 
-### Tech Stack
+- Get product review by product_id
 
-Apollo
+- Get review metadata by product_id
 
-Express
+- Add new review
 
-GraphQL
+- Update helpfulness of a review
 
-MongoDB
+- Report a review
 
-### Getting started
+## Get started
 
+The easiest way to get started is to pull the docker image. Go to INSERT_URL and click pull image.
+
+```
 $ npm install
+```
 
-$ npm run server-dev
+```
+$ npm start
+```
 
+```
 Start Server
+```
 
-Open http://localhost:4000/reviews
+## GraphQL Playground
+
+http://localhost:4000/reviews

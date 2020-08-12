@@ -1,6 +1,16 @@
+# *
+
+# !src/
+# !docker-compose.yml
+# !package.json
+# !README.md
+# !wait-for-it.sh
+
+.dockerignore
 .gitignore
 .git
-.ds_store
+.DS_Store
+Dockerfile
 node_modules
 .env
 .cache
