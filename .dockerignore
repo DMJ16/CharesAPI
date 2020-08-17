@@ -1,11 +1,3 @@
-# *
-
-# !src/
-# !docker-compose.yml
-# !package.json
-# !README.md
-# !wait-for-it.sh
-
 .dockerignore
 .gitignore
 .git
