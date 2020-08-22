@@ -1,4 +1,4 @@
-FROM node:14.7.0
+FROM node
 
 RUN mkdir -p /home/node/charesapi/node_modules && chown -R node:node /home/node/charesapi
 

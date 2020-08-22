@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: node:12
+    image: node
     container_name: nodejs
     restart: unless-stopped
     env_file: .env
@@ -21,7 +21,7 @@ services:
       - .:/home/node/charesapi
       - node_modules:/home/node/charesapi/node_modules
     networks:
-      - app-network
+      - my-app-network
     depends_on:
       - "db"
     command:
@@ -34,7 +34,7 @@ services:
       ]
 
   db:
-    image: mongo:4.2
+    image: mongo
     container_name: db
     restart: unless-stopped
     env_file: .env
@@ -45,13 +45,13 @@ services:
     ports:
       - 27017:27017
     networks:
-      - app-network
+      - my-app-network
     volumes:
       - /usr/local/var/mongodb:/data/db
       - name:/usr/local/var/mongodb
 
 networks:
-  app-network:
+  my-app-network:
     driver: bridge
 volumes:
   node_modules:

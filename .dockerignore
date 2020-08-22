@@ -2,7 +2,9 @@
 .gitignore
 .git
 .DS_Store
+docker-compose.yml
 Dockerfile
 node_modules
 .env
 .cache
+chares-aws-linux.pem
