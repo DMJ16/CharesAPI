@@ -44,7 +44,10 @@ db.connect(
   MONGO_DB
 );
 
-server.applyMiddleware({ app, path: `/reviews` });
+server.applyMiddleware({
+  app,
+  path: `/reviews`,
+});
 
 app.listen({ port }, () =>
   console.log(
