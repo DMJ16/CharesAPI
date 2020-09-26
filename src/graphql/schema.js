@@ -19,7 +19,7 @@ const typeDefs = gql`
     photos: [ReviewPhoto]
   }
 
-  type ReviewPhoto {
+  type ReviewPhoto @cacheControl(maxAge: 240) {
     id: Int
     review_id: Int
     url: String
