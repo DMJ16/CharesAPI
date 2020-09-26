@@ -2,7 +2,7 @@
 
 #### Node.js | GraphQL | Apollo | Express | MongoDB | AWS EC2 | Docker
 
-GraphQL API delivering product review data for an eCommerce website.
+API for eCommerce website’s product reviews.
 
 GraphQL Playground 🎮 http://ec2-34-204-6-123.compute-1.amazonaws.com:4000/reviews
 
