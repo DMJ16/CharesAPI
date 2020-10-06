@@ -1,14 +1,14 @@
-# CharesAPI
+# 🔮 GraphQL API
 
 #### Node.js | GraphQL | Apollo | Express | MongoDB | AWS EC2 | Docker
 
 API for eCommerce website’s product reviews.
 
-GraphQL Playground 🎮 http://ec2-34-204-6-123.compute-1.amazonaws.com:4000/reviews
+🎮 GraphQL Playground http://ec2-34-204-6-123.compute-1.amazonaws.com:4000/reviews
 
-## Queries ❓
+## ❓ Queries
 
-### List Reviews 📄
+### 📄 List Reviews
 
 Get a list of reviews for individual products. Reported reviews are excluded.
 
@@ -52,7 +52,7 @@ sort: String
         // ...
 ```
 
-### Review Metadata 📊
+### 📊 Review Metadata
 
 Get review metadata for a single product.
 
@@ -95,9 +95,9 @@ meta(product_id: Int!): Metadata
 }
 ```
 
-## Mutations 🧬
+## 🧬 Mutations
 
-### Add a Review 📝
+### 📝 Add a Review
 
 Add a new review for a single product.
 
@@ -116,7 +116,7 @@ characteristics: JSON
 ): Boolean
 ```
 
-### Update Review Helpfulness 🤝
+### 🤝 Update Review Helpfulness
 
 Increment a review's helpfulness rating.
 
@@ -124,7 +124,7 @@ Increment a review's helpfulness rating.
 helpful(review_id: Int!): Boolean
 ```
 
-### Report a Review ⚠️
+### ⚠️ Report a Review
 
 Report a review to the host. Review is not deleted, but it will be excluded from future get review list queries.
 
