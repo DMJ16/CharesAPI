@@ -4,7 +4,7 @@
 
 API for eCommerce website’s product reviews.
 
-🎮 GraphQL Playground http://ec2-34-204-6-123.compute-1.amazonaws.com:4000/reviews
+🎮 [GraphQL Playground](http://ec2-34-204-6-123.compute-1.amazonaws.com:4000/reviews)
 
 ## ❓ Queries
 
